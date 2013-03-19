@@ -215,20 +215,6 @@
 
 
 
-! --- version 2007_09_27 -----------------------------------------------------------
-!      subroutine open_file (iu, fn, nrecl)
-!
-!      implicit none 
-!        integer,          intent(in) :: iu
-!        character(len=*), intent(in) :: fn
-!        integer,          intent(in) :: nrecl
-!
-!      open (iu, file=fn, form='unformatted', access='direct', 
-!     .          recl=nrecl)
-!
-!      return
-!      end subroutine open_file
-! --- version 2007_09_27 -----------------------------------------------------------
 
 
 
