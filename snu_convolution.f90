@@ -318,7 +318,10 @@
         real(kind=8),   dimension(1:ny) :: yy = 0.d0
         
         call tconvolv (yy(1:ny), ny, xx(1:nx), nx, hh(1:nh), nh)
-        ! call tconvolv (yy(1:ny), ny, xx(1:nx), nx, hh(1:nh), nh, 7224)
+        
+        ! for debugging
+        ! call tconvolv (yy(1:ny), ny, xx(1:nx), nx, hh(1:nh), nh, 8807224)
+        
         print '(8(1x,f6.3))', yy(1:ny)
         
         stop
