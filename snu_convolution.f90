@@ -278,7 +278,7 @@
         ! yy[1] = hh[1]xx[1]           .            .     .   =  2*3    .     .   . =  6  ii=1  
         ! yy[2] = hh[2]xx[1] + hh[1]xx[2]           .     .   =  1*3 + 2*4    .   . = 11  ii=nh 
         ! yy[3] =         .  + hh[2]xx[2] + hh[1]xx[3]    .   =    .   1*4 + 2*5  , = 14  ii=nx 
-        ! yy[4] =         .  +         .  + hh[2]xx[3]    .   =    .    ,    1*5  . =  5  ii=nh 
+        ! yy[4] =         .  +         .  + hh[2]xx[3]    .   =    .    ,    1*5  . =  5  ii=ny 
         integer(kind=4),parameter :: nx = 3
         integer(kind=4),parameter :: nh = 2
         real(kind=8),   dimension(1:nx) :: xx = (/ 3.d0, 4.d0, 5.d0 /)
@@ -302,7 +302,7 @@
         ! yy[4] =    .         hh[3]xx[2] + hh[2]xx[3] + hh[1]xx[4]          .      .     .   =  9       
         ! yy[5] =    .            .         hh[3]xx[3] + hh[2]xx[4] + hh[1]xx[5]    .     .   =  7 ii=nx 
         ! yy[6] =    .            .            .         hh[3]xx[4] + hh[2]xx[5]    .     .   =  3       
-        ! yy[7] =    .            .            .            .         hh[3]xx[5]    ,     ,   =  1 ii=nh 
+        ! yy[7] =    .            .            .            .         hh[3]xx[5]    ,     ,   =  1 ii=ny 
         ! integer(kind=4),parameter :: nx = 5
         ! integer(kind=4),parameter :: nh = 3
         ! real(kind=8),   dimension(1:nx) :: xx = (/ 1.d0, 2.d0, 2.d0, 1.d0, 1.d0/)
