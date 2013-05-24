@@ -48,8 +48,8 @@
         integer(kind=4),            intent(in)  :: nh
         
         integer(kind=4) :: ii, jj, jint, jend
-        real(kind=8)    :: sum
         integer(kind=4) :: nxh
+        real(kind=8)    :: sum
         
         yy(1:ny) = 0.d0
         if (nx .ge. nh) then ! nh -> slide function
@@ -129,14 +129,14 @@
         integer(kind=4),            intent(in)  :: ierr
         
         integer(kind=4) :: ii, jj, jint, jend, count
-        real(kind=8)    :: sum
         integer(kind=4) :: nxh
+        real(kind=8)    :: sum
         
         count = 0
         yy(1:ny) = 0.d0
         if (nx .ge. nh) then ! nh -> slide function
           print '(a)', 'slice function: hh(1:nh)'
-          print '(a)', 'WeThePeople1'
+          print '(a)', 'WeThePeople 1'
           jint = 1
           do ii = 1, nh
             jend = ii
@@ -151,7 +151,7 @@
           end do ! do ii = 1, nh
           
           jend = nh
-          print '(a)', 'WeThePeople2'
+          print '(a)', 'WeThePeople 2'
           do ii = nh+1, nx
             sum = 0.d0
             do jj = jint, jend
@@ -162,7 +162,7 @@
             yy(ii) = sum
           end do ! do ii = 1, nh
           
-          print '(a)', 'WeThePeople3'
+          print '(a)', 'WeThePeople 3'
           do  ii = nx+1, ny
             jint = ii-nx+1
             sum = 0.d0
@@ -176,7 +176,7 @@
           
         else if (nx .lt. nh) then ! nx -> slide function
           print '(a)', 'slice function: xx(1:nx)'
-          print '(a)', 'WeThePeople11'
+          print '(a)', 'WeThePeople 11'
           jint = 1
           do ii = 1, nx
             jend = ii
@@ -191,7 +191,7 @@
           end do ! do ii = 1, nh
           
           jend = nx
-          print '(a)', 'WeThePeople12'
+          print '(a)', 'WeThePeople 12'
           do ii = nx+1, nh
             sum = 0.d0
             do jj = jint, jend
@@ -202,7 +202,7 @@
             yy(ii) = sum
           end do ! do ii = 1, nh
           
-          print '(a)', 'WeThePeople13'
+          print '(a)', 'WeThePeople 13'
           do  ii = nh+1, ny
             jint = ii-nh+1
             sum = 0.d0
@@ -277,17 +277,17 @@
         !              ix=1         ix=2         ix=3   ix=4                                    
         ! yy[1] = hh[1]xx[1]           .            .     .   =  2*3    .     .   . =  6  ii=1  
         ! yy[2] = hh[2]xx[1] + hh[1]xx[2]           .     .   =  1*3 + 2*4    .   . = 11  ii=nh 
-        ! yy[3] =         .  + hh[2]xx[2] + hh[1]xx[3]    .   =    .   1*4 + 2*5  , = 14  ii=nx 
-        ! yy[4] =         .  +         .  + hh[2]xx[3]    .   =    .    ,    1*5  . =  5  ii=ny 
-        integer(kind=4),parameter :: nx = 3
-        integer(kind=4),parameter :: nh = 2
-        real(kind=8),   dimension(1:nx) :: xx = (/ 3.d0, 4.d0, 5.d0 /)
-        real(kind=8),   dimension(1:nh) :: hh = (/ 2.d0, 1.d0 /)
+        ! yy[3] =         .  + hh[2]xx[2] + hh[1]xx[3]    .   =    .   1*4 + 2*5  . = 14  ii=nx 
+        ! yy[4] =         .  +         .  + hh[2]xx[3]    .   =    .    .    1*5  . =  5  ii=ny 
+        integer(kind=4), parameter :: nx = 3
+        integer(kind=4), parameter :: nh = 2
+        real(kind=8),    dimension(1:nx) :: xx = (/ 3.d0, 4.d0, 5.d0 /)
+        real(kind=8),    dimension(1:nh) :: hh = (/ 2.d0, 1.d0 /)
         
-        ! integer(kind=4),parameter :: nx = 2
-        ! integer(kind=4),parameter :: nh = 3
-        ! real(kind=8),   dimension(1:nx) :: xx = (/ 2.d0, 1.d0 /)
-        ! real(kind=8),   dimension(1:nh) :: hh = (/ 3.d0, 4.d0, 5.d0 /)
+        ! integer(kind=4), parameter :: nx = 2
+        ! integer(kind=4), parameter :: nh = 3
+        ! real(kind=8),    dimension(1:nx) :: xx = (/ 2.d0, 1.d0 /)
+        ! real(kind=8),    dimension(1:nh) :: hh = (/ 3.d0, 4.d0, 5.d0 /)
         ! ----------------------------------------------------------------------------------------------- example 01
         
         ! ----------------------------------------------------------------------------------------------- example 02
@@ -302,20 +302,20 @@
         ! yy[4] =    .         hh[3]xx[2] + hh[2]xx[3] + hh[1]xx[4]          .      .     .   =  9       
         ! yy[5] =    .            .         hh[3]xx[3] + hh[2]xx[4] + hh[1]xx[5]    .     .   =  7 ii=nx 
         ! yy[6] =    .            .            .         hh[3]xx[4] + hh[2]xx[5]    .     .   =  3       
-        ! yy[7] =    .            .            .            .         hh[3]xx[5]    ,     ,   =  1 ii=ny 
-        ! integer(kind=4),parameter :: nx = 5
-        ! integer(kind=4),parameter :: nh = 3
-        ! real(kind=8),   dimension(1:nx) :: xx = (/ 1.d0, 2.d0, 2.d0, 1.d0, 1.d0/)
-        ! real(kind=8),   dimension(1:nh) :: hh = (/ 3.d0, 2.d0, 1.d0 /)
+        ! yy[7] =    .            .            .            .         hh[3]xx[5]    .     .   =  1 ii=ny 
+        ! integer(kind=4), parameter :: nx = 5
+        ! integer(kind=4), parameter :: nh = 3
+        ! real(kind=8),    dimension(1:nx) :: xx = (/ 1.d0, 2.d0, 2.d0, 1.d0, 1.d0/)
+        ! real(kind=8),    dimension(1:nh) :: hh = (/ 3.d0, 2.d0, 1.d0 /)
         
-        ! integer(kind=4),parameter :: nx = 3
-        ! integer(kind=4),parameter :: nh = 5
-        ! real(kind=8),   dimension(1:nx) :: xx = (/ 3.d0, 2.d0, 1.d0 /)
-        ! real(kind=8),   dimension(1:nh) :: hh = (/ 1.d0, 2.d0, 2.d0, 1.d0, 1.d0/)
+        ! integer(kind=4), parameter :: nx = 3
+        ! integer(kind=4), parameter :: nh = 5
+        ! real(kind=8),    dimension(1:nx) :: xx = (/ 3.d0, 2.d0, 1.d0 /)
+        ! real(kind=8),    dimension(1:nh) :: hh = (/ 1.d0, 2.d0, 2.d0, 1.d0, 1.d0/)
         ! ----------------------------------------------------------------------------------------------- example 02
         
-        integer(kind=4),parameter :: ny = nx+nh-1
-        real(kind=8),   dimension(1:ny) :: yy = 0.d0
+        integer(kind=4), parameter :: ny = nx+nh-1
+        real(kind=8),    dimension(1:ny) :: yy = 0.d0
         
         call tconvolv (yy(1:ny), ny, xx(1:nx), nx, hh(1:nh), nh)
         
