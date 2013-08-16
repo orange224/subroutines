@@ -92,7 +92,7 @@
             module procedure vp2pm_d0
             module procedure vp2pm_d1
             module procedure vp2pm_d2
-         end interface       vp2pm   
+         end interface       vs2pm   
          
          ! s-wave modulus or shear modulus, ds -> vs
          ! vs = sqrt(sm/ds)
