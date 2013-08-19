@@ -383,7 +383,7 @@
          
          !!                                                                                                  read_irec
          !> @author
-         !!  uguen.jang@uwa.edu.au
+         !!  orange224
          !!
          !> @todo
          !!  2013-06-14: read_irec4_i1
