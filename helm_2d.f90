@@ -7,7 +7,6 @@
 
 
 
-
       !> @see 
       !!  George B. Arfken and Hans J. Weber, Mathematical Methods For Physicists
       !!  9.7 Nonhomogeneous Equation - Green's Function
@@ -61,3 +60,34 @@
          end if
          
       end function helm_2d
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
