@@ -3,7 +3,7 @@
       !!  Chapter 3. Green's Functions for the Wave Equation
       !!  equation (3.5.11)
       
-      FUNCTION green3d (vp, sx, sy, sz, gx, gy, gz, tt, t0, dt) RESULT (gg)
+      FUNCTION TD3DGG (vp, sx, sy, sz, gx, gy, gz, tt, t0, dt) RESULT (gg)
       IMPLICIT NONE
          REAL(KIND=8), INTENT(IN) :: vp
          REAL(KIND=8), INTENT(IN) :: sx, sy, sz
@@ -31,5 +31,5 @@
          gg = gg*(1.0D+0/(fpi*r0))
          
          RETURN
-      END FUNCTION green3d
+      END FUNCTION TD3DGG
       
