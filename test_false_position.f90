@@ -56,18 +56,22 @@
       es = 1.0D-9
       sgn = 0
       do
+         !> false position method 를 빠르게(?)
          cc_tmp = (ff_int*cc_end - ff_end*cc_int)/(ff_int - ff_end)
          ff_tmp = given_function (cc_tmp, f0)
          
          print "(6(1x,f24.12))", cc_int, cc_tmp, cc_end, ff_int, ff_tmp, ff_end
          
+         !> 해를 거의 다 찾은 거 같아 !! 
          if (dabs(cc_end-cc_int) .le. es*dabs(cc_end+cc_int)) then
             exit
          end if
          
+         !> 
          if (ff_tmp*ff_end .gt. 0.0D0) then
             cc_end = cc_tmp
             ff_end = ff_tmp
+            !> false position method 를 빠르게(?)
             if (sgn .eq. -1) ff_int = 0.5D0*ff_int
             sgn = -1
             
@@ -75,6 +79,7 @@
             cc_int = cc_tmp
             ff_int = ff_tmp
             
+            !> false position method 를 빠르게(?) 
             if (sgn .eq. 1) ff_end = 0.5D0*ff_end
             sgn = 1
          else
