@@ -48,12 +48,12 @@
       cc_int = 1.0D0
       cc_end = 100000.0D0
       cc_tmp = 0.0D0
-
+      
       f0 = 3600.0D0
       ff_int = given_function (cc_int, f0)
       ff_end = given_function (cc_end, f0)
       
-      es = 0.1D0
+      es = 1.0D-9
       sgn = 0
       do
          cc_tmp = (ff_int*cc_end - ff_end*cc_int)/(ff_int - ff_end)
@@ -61,7 +61,7 @@
          
          print "(6(1x,f24.12))", cc_int, cc_tmp, cc_end, ff_int, ff_tmp, ff_end
          
-         if (dabs(cc_end-cc_int) .lt. es*dabs(cc_end+cc_int)) then
+         if (dabs(cc_end-cc_int) .le. es*dabs(cc_end+cc_int)) then
             exit
          end if
          
@@ -74,7 +74,6 @@
          else if (ff_tmp*ff_int .gt. 0.0D0) then
             cc_int = cc_tmp
             ff_int = ff_tmp
-            ff_end = 0.5D0*ff_end
             
             if (sgn .eq. 1) ff_end = 0.5D0*ff_end
             sgn = 1
