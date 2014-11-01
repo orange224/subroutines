@@ -43,17 +43,18 @@
       integer(kind=8) :: sgn
       
       
-      f0 = 3600.0D0
-      ff_int = given_function (cc_int, f0)
-      ff_end = given_function (cc_end, f0)
-      
       !> cc_int: end points, lower bound
       !> cc_end: end points, upper bound
       cc_int = 1.0D0
       cc_end = 100000.0D0
-      sgn = 0
       cc_tmp = 0.0D0
+
+      f0 = 3600.0D0
+      ff_int = given_function (cc_int, f0)
+      ff_end = given_function (cc_end, f0)
       
+      es = 0.1D0
+      sgn = 0
       do
          cc_tmp = (ff_int*cc_end - ff_end*cc_int)/(ff_int - ff_end)
          ff_tmp = given_function (cc_tmp, f0)
